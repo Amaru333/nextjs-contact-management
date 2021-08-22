@@ -1,0 +1,43 @@
+.container {
+  background: white;
+  padding: 10px 0px 10px 0px;
+  margin: 5px 0px 5px 0px;
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+
+.name {
+  width: 30%;
+  margin-left: 20px;
+}
+
+.number {
+  width: 25%;
+  margin-left: 20px;
+}
+
+.email {
+  width: 30%;
+  margin-left: 20px;
+}
+
+.action {
+  width: 15%;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.container_input {
+  font-size: 14px;
+  border: 1px solid #fc444446;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.action_button {
+  color: #fc4445;
+  margin-right: 6px;
+  cursor: pointer;
+}

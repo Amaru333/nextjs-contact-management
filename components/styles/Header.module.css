@@ -1,9 +1,9 @@
 .container {
-  background-color: #005ae8;
+  background-color: #fc4444e0;
 }
 
 .inner_container {
-  color: rgb(235, 233, 233);
+  color: rgba(255, 254, 254, 0.938);
   display: flex;
   width: 30%;
   margin: auto;

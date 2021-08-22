@@ -1,4 +1,7 @@
 export const ADD_CONTACT = "ADD_CONTACT";
 export const VIEW_CONTACT = "VIEW_CONTACT";
 export const ADD_FAVORITES = "ADD_FAVORITES";
+export const REMOVE_FAVORITES = "REMOVE_FAVORITES";
 export const SET_FILTER = "SET_FILTER";
+export const REMOVE_CONTACT = "REMOVE_CONTACT";
+export const EDIT_CONTACT = "EDIT_CONTACT";
