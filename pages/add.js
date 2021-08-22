@@ -3,7 +3,7 @@ import React from "react";
 import AddContact from "../components/AddContact";
 import Header from "../components/Header";
 
-export default function add() {
+export default function Add() {
   return (
     <div>
       <Head>

@@ -4,7 +4,7 @@ import ContactList from "../components/ContactList";
 import { useSelector } from "react-redux";
 import styles from "../styles/Home.module.css";
 
-export default function favorites() {
+export default function Favorites() {
   const contacts = useSelector((state) => state.contactReducer);
   let j = 0;
   for (let i = 0; i < contacts.length; i++) {
