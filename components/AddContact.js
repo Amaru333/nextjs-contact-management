@@ -17,6 +17,8 @@ export default function AddContact() {
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
 
+  const [error, setError] = useState(null);
+
   const handleName = (e) => {
     setName(e.target.value);
   };
@@ -30,18 +32,23 @@ export default function AddContact() {
   };
 
   const handleSubmit = () => {
-    const res = dispatch(
-      addContact({
-        name: name,
-        number: number,
-        email: email,
-        favorite: false,
-      })
-    );
-    if (res) {
-      console.log("done");
+    setError(null);
+    if (name === "" || number === "" || email === "") {
+      setError("Please enter all the fields");
+    } else {
+      const res = dispatch(
+        addContact({
+          name: name,
+          number: number,
+          email: email,
+          favorite: false,
+        })
+      );
+      if (res) {
+        console.log("done");
+      }
+      Router.replace("/");
     }
-    Router.replace("/");
   };
 
   return (
@@ -73,6 +80,9 @@ export default function AddContact() {
       <button className={styles.button} onClick={handleSubmit}>
         Add Contact
       </button>
+      <p style={{ fontSize: "14px", color: "red", alignSelf: "center" }}>
+        {error}
+      </p>
     </div>
   );
 }
