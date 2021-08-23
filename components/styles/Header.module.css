@@ -14,3 +14,9 @@
 .navbar_component {
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  .inner_container {
+    width: 90%;
+  }
+}

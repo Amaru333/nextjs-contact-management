@@ -41,3 +41,26 @@
   margin-right: 6px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 95vw;
+  }
+  .name {
+    width: 25%;
+  }
+  .number {
+    width: 25%;
+  }
+  .email {
+    width: 25%;
+  }
+  .action {
+    width: 25%;
+  }
+  .container_input {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
