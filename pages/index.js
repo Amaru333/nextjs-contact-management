@@ -4,9 +4,22 @@ import styles from "../styles/Home.module.css";
 import ContactList from "../components/ContactList";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import HomePage from "../components/HomePage";
 
 export default function Home() {
   const contacts = useSelector((state) => state.contactReducer);
+  // let local_data = []
+  // for (let a=0;a<contacts.length;a++) {
+  //   let data = {
+  //     id = contacts[a].id,
+  //     name = contacts[a].name,
+  //     number = contacts[a].number,
+  //     email = contacts[a].email,
+  //     favorite = contacts[a].favorite
+  //   }
+  //   local_data.push(data);
+  // }
+
   return (
     <div>
       <Head>
@@ -15,7 +28,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className={styles.container}>
+      <HomePage />
+      {/* <div className={styles.container}>
         {contacts.length > 0 ? (
           <div>
             <div className={styles.header}>
@@ -51,7 +65,7 @@ export default function Home() {
             </Link>
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

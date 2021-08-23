@@ -26,6 +26,15 @@ export default function ContactList({ id, name, number, email, favorite }) {
 
   const [isEditing, setIsEditing] = useState(false);
 
+  const local_item = [];
+
+  if (typeof window !== "undefined") {
+    if (window.localStorage.getItem("contact")) {
+      const temp_data = JSON.parse(window.localStorage.getItem("contact"));
+      local_item.push(...temp_data);
+    }
+  }
+
   const handleFavorite = () => {
     const res = dispatch(
       addFavorite({
@@ -33,7 +42,9 @@ export default function ContactList({ id, name, number, email, favorite }) {
       })
     );
     if (res) {
-      console.log("success");
+      console.log(res);
+      local_item[id - 1].favorite = true;
+      localStorage.setItem("contact", JSON.stringify(local_item));
     }
     console.log("test");
   };
@@ -45,7 +56,13 @@ export default function ContactList({ id, name, number, email, favorite }) {
       })
     );
     if (res) {
-      console.log("deleted");
+      console.log(res);
+      for (let ia = 0; ia < local_item.length; ia++) {
+        if (local_item[ia].id === res.id) {
+          local_item.splice(ia, 1);
+        }
+      }
+      localStorage.setItem("contact", JSON.stringify(local_item));
     }
   };
 
@@ -56,7 +73,9 @@ export default function ContactList({ id, name, number, email, favorite }) {
       })
     );
     if (res) {
-      console.log("Success");
+      console.log(res);
+      local_item[id - 1].favorite = false;
+      localStorage.setItem("contact", JSON.stringify(local_item));
     }
     console.log("test");
   };
@@ -85,6 +104,16 @@ export default function ContactList({ id, name, number, email, favorite }) {
     );
     if (res) {
       console.log(res);
+      for (let ib = 0; ib < local_item.length; ib++) {
+        if (local_item[ib].id === res.id) {
+          local_item[ib].name = res.name;
+          local_item[ib].email = res.email;
+          local_item[ib].number = res.number;
+          local_item[ib].favorite = res.favorite;
+          local_item[ib].id = res.id;
+        }
+      }
+      localStorage.setItem("contact", JSON.stringify(local_item));
     } else {
       console.log("fail");
     }

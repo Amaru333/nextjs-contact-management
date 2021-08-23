@@ -6,7 +6,13 @@ import {
   EDIT_CONTACT,
 } from "./actionTypes";
 
-const initialState = [];
+let initialState = [];
+if (typeof window !== "undefined") {
+  if (window.localStorage.getItem("contact")) {
+    const item = JSON.parse(window.localStorage.getItem("contact"));
+    initialState = item;
+  }
+}
 
 const contactReducer = (state = initialState, action) => {
   switch (action.type) {

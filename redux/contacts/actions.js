@@ -20,7 +20,7 @@ export const editContact = (contact) => {
         favorite: contact.favorite,
       },
     });
-    return true;
+    return contact;
   };
 };
 
@@ -33,7 +33,7 @@ export const addContact = (contact) => {
         ...contact,
       },
     });
-    return true;
+    return { id: nextContactID, ...contact };
   };
 };
 
@@ -43,7 +43,7 @@ export const removeContact = (id) => {
       type: REMOVE_CONTACT,
       payload: id,
     });
-    return true;
+    return id;
   };
 };
 
@@ -53,6 +53,7 @@ export const addFavorite = (id) => {
       type: ADD_FAVORITES,
       payload: id,
     });
+    return id;
   };
 };
 
@@ -62,5 +63,6 @@ export const removeFavorite = (id) => {
       type: REMOVE_FAVORITES,
       payload: id,
     });
+    return id;
   };
 };

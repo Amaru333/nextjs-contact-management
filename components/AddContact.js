@@ -31,6 +31,17 @@ export default function AddContact() {
     setEmail(e.target.value);
   };
 
+  const local_item = [];
+
+  if (typeof window !== "undefined") {
+    if (window.localStorage.getItem("contact")) {
+      const temp_data = JSON.parse(window.localStorage.getItem("contact"));
+      local_item.push(...temp_data);
+    }
+  }
+
+  console.log(local_item);
+
   const handleSubmit = () => {
     setError(null);
     if (name === "" || number === "" || email === "") {
@@ -45,7 +56,9 @@ export default function AddContact() {
         })
       );
       if (res) {
-        console.log("done");
+        console.log(res);
+        local_item.push(res);
+        localStorage.setItem("contact", JSON.stringify(local_item));
       }
       Router.replace("/");
     }
